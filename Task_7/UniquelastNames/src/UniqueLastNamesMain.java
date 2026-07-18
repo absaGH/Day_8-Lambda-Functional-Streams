@@ -8,5 +8,7 @@
  * @author Yosef S
  */
 public class UniqueLastNamesMain {
-    
+    public static void main(String[] args){
+        
+    }
 }
