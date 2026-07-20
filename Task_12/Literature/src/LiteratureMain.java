@@ -1,5 +1,7 @@
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -19,6 +21,12 @@ class Book{
     public Book(String bkname, int recommended_age){
         this.bkname = bkname;
         this.recommended_age = recommended_age;
+    }
+    public String getBkname(){
+        return this.bkname;
+    }
+    public int getRecommendedAge(){
+        return this.recommended_age;
     }
     
     @Override
@@ -46,8 +54,12 @@ public class LiteratureMain {
             }
         }
         System.out.println("\n");
-        System.out.println(books.size() + "books in total.");
+        System.out.println(books.size() + " books in total.");
         System.out.println("\nBooks:");
+        
+        Comparator<Book> comparator = Comparator.comparing(Book::getRecommendedAge);
+        
+        Collections.sort(books, comparator);
         books.stream().forEach(obj -> System.out.println(obj));
     }
 }
