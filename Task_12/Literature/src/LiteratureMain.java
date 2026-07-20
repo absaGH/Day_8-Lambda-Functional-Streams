@@ -57,7 +57,7 @@ public class LiteratureMain {
         System.out.println(books.size() + " books in total.");
         System.out.println("\nBooks:");
         
-        Comparator<Book> comparator = Comparator.comparing(Book::getRecommendedAge);
+        Comparator<Book> comparator = Comparator.comparing(Book::getRecommendedAge).thenComparing(Book::getBkname);
         
         Collections.sort(books, comparator);
         books.stream().forEach(obj -> System.out.println(obj));
